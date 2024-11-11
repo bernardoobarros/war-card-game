@@ -15,7 +15,7 @@
             <h2 id="winner1"></h2>
             <h4>Player 1</h4>
             <p id="player1-cards">Cards: </p>
-            <button id="player1-btn">Throw card</button>
+            <button id="player1-btn" onclick="throwCard()">Throw card</button>
         </div>
 
         <br>
@@ -32,10 +32,12 @@
             <h2 id="winner2"></h2>
             <h4>Player 2</h4>
             <p id="player2-cards">Cards: </p>
-            <button id="player2-btn">Throw card</button>
+            <button id="player2-btn" onclick="throwCard()">Throw card</button>
         </div>
 
     </div>
+    
+    <button id="new-game" onclick="newGame(cards)">New Game</button>
 
     <script src="main.js"></script>
 </body>
