@@ -9,35 +9,35 @@
 <body>  
 
     <h1>Welcome to War!!</h1>
+    
+    <h2 id="winner1"></h2>
+    <h2 id="winner2"></h2>
 
     <div id="container">
         <div id="player1">
-            <h2 id="winner1"></h2>
             <h4>Player 1</h4>
-            <p id="player1-cards">Cards: </p>
-            <button id="player1-btn" onclick="throwCard()">Throw card</button>
+            <p>Cards:</p>
+            <p id="player1-cards"></p>
+            <button id="player1-btn">Throw card</button>
         </div>
 
         <br>
         
         <div id="cards">
             <h4>Table Cards</h4>
-            <div id="card">
-                <p id="card-value">A</p>
-            </div>
-            <p id="previous-card">Previous Card: </p>
+            <div id="card"></div>
         </div>
 
         <div id="player2">
-            <h2 id="winner2"></h2>
             <h4>Player 2</h4>
-            <p id="player2-cards">Cards: </p>
-            <button id="player2-btn" onclick="throwCard()">Throw card</button>
+            <p>Cards:</p>
+            <p id="player2-cards"></p>
+            <button id="player2-btn">Throw card</button>
         </div>
 
     </div>
     
-    <button id="new-game" onclick="newGame(cards)">New Game</button>
+    <button id="new-game" onclick="window.location.reload();">New Game</button>
 
     <script src="main.js"></script>
 </body>
