@@ -30,7 +30,10 @@ let current_player = p1;
 
 let last_cards = [];
 
-let startTime = 10;
+
+let timer = null;
+let minutes = 9;
+let seconds = 59;
 
 for(let i = deck.length - 1; i > 0; i--){
     const randomizer = Math.floor(Math.random() * (i + 1));
@@ -72,7 +75,6 @@ p2_Throw_Btn.addEventListener("click", () => {
     current_player = switchPlayer(current_player);
     compareCards();
 })
-
 
 
 function switchPlayer (current){
@@ -127,7 +129,24 @@ function compareCards (){
     }
 }
 
-function updateTime(){
-    const currentTime = Date.now();
+timer = setInterval(updateTime, 1000);
 
+function updateTime(){
+
+    if(seconds > 0 && minutes >= 0){
+        seconds --;
+    }
+    else if(minutes == 0 && seconds == 0){
+        window.alert("O tempo acabou, jogo encerrado!");
+        clearInterval(timer);
+    }
+    else if(seconds == 0 && minutes > 0){
+        minutes --;
+        seconds = 60
+    }
+
+    minutes = String(minutes).padStart(2, "0");
+    seconds = String(seconds).padStart(2, "0");
+    
+    display.textContent = `${minutes}:${seconds}`
 }
