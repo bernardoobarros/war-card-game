@@ -10,35 +10,39 @@
 
     <h1>Welcome to War!!</h1>
     
-    <h2 id="winner1"></h2>
-    <h2 id="winner2"></h2>
+    <div id="display-counter">00:00</div>
+    <h2 id="winner">A</h2>
 
     <div id="container">
         <div id="player1">
             <h4>Player 1</h4>
             <p>Cards:</p>
             <p id="player1-cards"></p>
+            <p>Wins: </p>
+            <p id="win-counter1">0</p>
             <button id="player1-btn">Throw card</button>
         </div>
-
-        <br>
         
         <div id="cards">
             <h4>Table Cards</h4>
-            <div id="card"></div>
+            <div id="display-card">
+                <div id="card"></div>
+            </div>
         </div>
 
         <div id="player2">
             <h4>Player 2</h4>
             <p>Cards:</p>
             <p id="player2-cards"></p>
+            <p>Wins: </p>
+            <p id="win-counter2">0</p>
             <button id="player2-btn">Throw card</button>
         </div>
 
-    </div>
+    </div> 
     
     <button id="new-game" onclick="window.location.reload();">New Game</button>
-
+    
     <script src="main.js"></script>
 </body>
 </html>

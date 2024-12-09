@@ -1,27 +1,36 @@
-let game = true;
+const p1_amount = document.getElementById("player1-cards");
+const p2_amount = document.getElementById("player2-cards");
+
+const winner = document.getElementById("winner");
+
+const card = document.getElementById("card");
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
+const cards_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
+
+const p1_Throw_Btn = document.getElementById("player1-btn");
+const p2_Throw_Btn = document.getElementById("player2-btn");
+
+const display = document.getElementById("display-counter");
+
 let deck = ['A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K',
              'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 
              'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K', 
              'A', 2, 3, 4, 5, 6, 7, 8, 9, 10, 'J', 'Q', 'K'];
 
+
 let p1 = "p1";
 let p2 = "p2";
-let p1_amount = document.getElementById("player1-cards");
-let p2_amount = document.getElementById("player2-cards");
-let winner1 = document.getElementById("winner1");
-let winner2 = document.getElementById("winner2");
+let player1_Cards = [];
+let player2_Cards = [];
+
+let win_counter1 = 0
+let win_counter2 = 0
 
 let current_player = p1;
 
-let card = document.getElementById("card");
-let cards = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K", "A"];
-let cards_values = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14];
 let last_cards = [];
 
-let player1_Cards = [];
-let player2_Cards = [];
-let p1_Throw_Btn = document.getElementById("player1-btn");
-let p2_Throw_Btn = document.getElementById("player2-btn");
+let startTime = 10;
 
 for(let i = deck.length - 1; i > 0; i--){
     const randomizer = Math.floor(Math.random() * (i + 1));
@@ -47,8 +56,7 @@ p1_Throw_Btn.addEventListener("click", () => {
         return;
     }
     
-    winner1.textContent = "";
-    winner2.textContent = "";
+    winner.textContent = "";
 
     throwCards(player1_Cards, p1_amount);
     current_player = switchPlayer(current_player);
@@ -66,6 +74,7 @@ p2_Throw_Btn.addEventListener("click", () => {
 })
 
 
+
 function switchPlayer (current){
     return current === p1 ? p2 : p1;
 }
@@ -76,8 +85,8 @@ function throwCards(player_Cards, player_amount){
         return;
     }
 
-    last_cards.push(player_Cards[0]);
     card.textContent = player_Cards[0];
+    last_cards.push(player_Cards[0]);
     player_Cards.splice(0, 1);
     player_amount.textContent = player_Cards.length;
 }
@@ -95,18 +104,30 @@ function compareCards (){
     card2value = cards_values.indexOf(card2);
 
     if(card1value > card2value){
-        winner1.textContent = "Winner!"
+        winner.textContent = "Player 1 Wins!";
+        win_counter1 ++;
+        player1_Cards.push(...last_cards);
+        document.getElementById("win-counter1").textContent = win_counter1;
+        p1_amount.textContent = player1_Cards.length;
+        last_cards = [];
     }
     else if(card2value > card1value){
-        winner2.textContent = "Winner!"
+        winner.textContent = "Player 2 Wins!";
+        win_counter2 ++;
+        player2_Cards.push(...last_cards);
+        document.getElementById("win-counter2").textContent = win_counter2;
+        p2_amount.textContent = player2_Cards.length;
+        last_cards = [];
     }
     else{
-        winner1.textContent = "Draw!"
-        winner2.textContent = "Draw!"
+        setTimeout(() => {
+            winner.textContent = "War!"
+        }, 1500);
+        winner.textContent = "Throw another card";
     }
-    console.log(card1);
-    console.log(card2);
 }
 
+function updateTime(){
+    const currentTime = Date.now();
 
-console.log(last_cards);
+}

@@ -9,18 +9,19 @@ h1{
 }
 
 h2{
-    display: inline-block;
+    text-align: center;
 }
 
-#winner1{
-    font-size: 2.5em;
-    margin-left: 260px;
+
+#winner{
+    font-size: 2.0em;
 }
 
-#winner2{
+#display-counter{
     font-size: 2.5em;
-    margin-left: 1090px;
+    text-align: center;
 }
+
 
 h4{
     font-size: 3em;
@@ -32,7 +33,7 @@ h4{
     color: white;
     border-radius: 10px;
     width: 350px;
-    height: 500px;
+    height: 550px;
 }
 
 #player2{
@@ -40,17 +41,17 @@ h4{
     color: white;
     border-radius: 10px;
     width: 350px;
-    height: 500px;
+    height: 550px;
 }
 
 #player1 button{
     margin-left: 29%;
-    margin-top: 40%;
+    margin-top: 20%;
 }
 
 #player2 button{
     margin-left: 29%;
-    margin-top: 40%;
+    margin-top: 20%;
 }
 
 #player1 p{
@@ -85,7 +86,7 @@ button:active{
 
 #container{
     display: flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
 
 }
 
@@ -94,22 +95,29 @@ button:active{
     color: white;
     border-radius: 10px;
     width: 350px;
-    height: 500px;
+    height: 550px;
     text-align: center;
-    margin-right: 5%;
 }
 
 #card{
+    font-size: 7rem;
+    margin-top: 70px;
+}
+
+#display-card{
     margin-left: 20%;
     background-color: hsl(0, 0%, 15%);
     border-radius: 10px;
     width: 200px;
     height: 270px;
-    
+    display: flex;
+    justify-content: center;
 }
+
+
 
 #new-game{
     padding: 20px;
-    margin-top: 100px;
-    margin-left: 47%;
+    margin-top: 30px;
+    margin-left: 46%;
 }
